@@ -1,0 +1,1 @@
+const API = "https://opentdb.com/api.php?amount=10&category=27&difficulty=hard&type=boolean";
