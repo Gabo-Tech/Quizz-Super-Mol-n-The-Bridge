@@ -1,4 +1,4 @@
-
+@import url('http://fonts.cdnfonts.com/css/homer-simpson-revised');
 body{
     height: 100vh;
 	/*filter: invert(1);*/
@@ -14,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
 	color: #ffffff;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Homer Simpson Revised','Dosis', sans-serif;
 }
 h1{
 	padding: 20rem;
@@ -39,7 +39,7 @@ h1{
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:'Homer Simpson Revised',Arial;
 	font-size:30px;
 	font-weight:bold;
 	padding:30px 70px;
@@ -92,7 +92,7 @@ h1{
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:'Homer Simpson Revised',Arial;
 	font-size:30px;
 	font-weight:bold;
 	padding:30px 70px;
