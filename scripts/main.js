@@ -8,10 +8,11 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const textContainer = document.getElementById("text-container");
 
-axios.get("https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple")
-.then((res) => console.log(res))
-.catch((err) => console.error(err));
-
+const getApi = async () => {
+  const response= await axios.get("https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple")
+  console.log(response);
+}
+getApi();
 
 let currentQuestionIndex;
 const questions = [
