@@ -1,3 +1,5 @@
+
+
 const API = "https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple";
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
@@ -5,6 +7,10 @@ const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const text = document.getElementById("text");
+
+axios.get("https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple")
+.then((res) => console.log(res))
+.catch((err) => console.error(err));
 
 
 let currentQuestionIndex;
