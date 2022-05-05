@@ -4,7 +4,7 @@ body{
     height: 100vh;
 	/*filter: invert(1);*/
 	margin: auto;
-	background-image: url("assets/illuminati_4PNG9.webp");
+	background-image: url(../assets/logo.png);
 	background-position-x: center;
 	background-position-y: center;
 	background-color: #030000;
@@ -13,32 +13,36 @@ body{
 	flex-direction: column;
     justify-content: center;
     align-items: center;
-	color: #ffffff;
 	font-family: 'Homer Simpson Revised','Dosis', sans-serif;
 }
 
-.text-container{
-	position: fixed;
+#text-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2vh;
+	background-color: #0000007e;
 }
 
-h1{
+span{
 	padding: 2rem;
 	font-size: 2rem;
 	text-align:center;
-	display: flex;
-	flex-direction: column;
-    justify-content: center;
-    align-items: center;
-	color: #E4A014
+	color: #E4A014;
 }
 
 a{
+	all:unset;
 	text-decoration: none;
 	color: #840600
 }
 
 a:hover {
 	font-size:35px;
+}
+
+#buttons-container{
+	padding: 2vh;
 }
 
 .myButton {
