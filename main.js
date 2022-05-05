@@ -8,6 +8,10 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const text = document.getElementById("text");
 
+axios.get("https://jsonplaceholder.typicode.com/posts")
+.then((res) => console.log(res))
+.catch((err) => console.error(err));
+
 
 let currentQuestionIndex;
 const questions = [
