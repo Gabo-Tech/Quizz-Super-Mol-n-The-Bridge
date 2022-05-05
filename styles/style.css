@@ -32,6 +32,10 @@ body{
 	background-color: #0000007e;
 }
 
+#question{
+	color: #E4A014;
+}
+
 #text-container{
 	display: flex;
 	justify-content: center;
