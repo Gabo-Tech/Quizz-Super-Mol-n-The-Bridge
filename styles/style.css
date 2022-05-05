@@ -1,5 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/homer-simpson-revised');
 
+
 body{
     height: 100vh;
 	/*filter: invert(1);*/
@@ -58,6 +59,71 @@ a:hover {
 	font-size:35px;
 }
 
+/* #question-container{
+
+} */
+
+#question{
+	font-size: 5rem;
+	font-weight: 900;
+	padding: 5rem;
+
+}
+
+#answer-buttons{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 3rem;
+}
+
+.correct {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #f5df7d 5%, #e4be14 100%);
+	background-color:#f5df7d;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:'Homer Simpson Revised',Arial;
+	font-size:2rem;
+	font-weight:bold;
+	padding:12px 16px;
+	text-decoration:none;
+}
+.correct:hover {
+	background:linear-gradient(to bottom, #e4be14 5%, #f5df7d 100%);
+	background-color:#e4be14;
+}
+.correct:active {
+	position:relative;
+	top:1px;
+}
+  
+.wrong {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #36332c 5%, #000000 100%);
+	background-color:#36332c;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#e49f14;
+	font-family:'Homer Simpson Revised',Arial;
+	font-size:2rem;
+	font-weight:bold;
+	padding:12px 16px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #000000 5%, #36332c 100%);
+	background-color:#000000;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
 #buttons-container{
 	padding: 2vh;
 }
@@ -90,71 +156,4 @@ a:hover {
 
 .hide {
     display: none;
-}
-
-#question{
-	font-size: 5rem;
-	font-weight: 900;
-	padding: 5rem;
-
-}
-
-#answer-buttons{
-	display: flex;
-	justify-content: space-around;
-	margin-bottom: 3rem;
-}
-
-.correct {
-	box-shadow:inset 0px 0px 0px 0px #2d6300;
-	background:linear-gradient(to bottom, #4e7000 5%, #76ad00 100%);
-	background-color:#4e7000;
-	border-radius:42px;
-	border:1px solid #83c41a;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:30px;
-	font-weight:bold;
-	padding:30px 70px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #86ae47;
-}
-
-.correct:hover {
-	background:linear-gradient(to bottom, #76ad00 5%, #4e7000 100%);
-	background-color:#76ad00;
-}
-
-.correct:active {
-	position:relative;
-	top:1px;
-}
-  
-.wrong {
-    box-shadow:inset 0px 0px 0px 0px #f29c93;
-	background:linear-gradient(to bottom, #750c00 5%, #bf0a0a 100%);
-	background-color:#750c00;
-	border-radius:42px;
-	border:1px solid #030000;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:'Homer Simpson Revised',Arial;
-	font-size:30px;
-	font-weight:bold;
-	padding:30px 70px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
-}
-
-.wrong:hover {
-	background:linear-gradient(to bottom, #bf0a0a 5%, #750c00 100%);
-	background-color:#bf0a0a;
-}
-
-.wrong:active {
-	position:relative;
-	top:1px;
 }
