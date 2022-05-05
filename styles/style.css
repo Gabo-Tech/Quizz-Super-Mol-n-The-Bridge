@@ -1,13 +1,109 @@
 
+body{
+    height: 100vh;
+	/*filter: invert(1);*/
+	margin: auto;
+	background-image: url("assets/illuminati_4PNG9.webp");
+	background-position-x: center;
+	background-position-y: center;
+	background-color: #030000;
+    background-repeat: no-repeat;
+    background-size: ;
+    display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	color: #ffffff;
+	font-family: 'Dosis', sans-serif;
+}
+h1{
+	padding: 20rem;
+	font-size: 5rem;
+}
+#question{
+	font-size: 5rem;
+	font-weight: 900;
+	padding: 5rem;
 
+}
+#answer-buttons{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 3rem;
+}
+.myButton {
+	box-shadow:inset 0px 0px 0px 0px #bee2f9;
+	background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+	background-color:#63b8ee;
+	border-radius:42px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:30px;
+	font-weight:bold;
+	padding:30px 70px;
+	text-decoration:none;
+	text-shadow:0px 0px 50px #7cacde;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+	background-color:#468ccf;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 .hide {
     display: none;
   }
   
-  .btn.correct {
-    background-color: rgb(0, 255, 72);
-  }
+  .correct {
+	box-shadow:inset 0px 0px 0px 0px #2d6300;
+	background:linear-gradient(to bottom, #4e7000 5%, #76ad00 100%);
+	background-color:#4e7000;
+	border-radius:42px;
+	border:1px solid #83c41a;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:30px;
+	font-weight:bold;
+	padding:30px 70px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #86ae47;
+}
+.correct:hover {
+	background:linear-gradient(to bottom, #76ad00 5%, #4e7000 100%);
+	background-color:#76ad00;
+}
+.correct:active {
+	position:relative;
+	top:1px;
+}
   
-  .btn.wrong {
-    background-color: rgb(255, 0, 0);
+  .wrong {
+    box-shadow:inset 0px 0px 0px 0px #f29c93;
+	background:linear-gradient(to bottom, #750c00 5%, #bf0a0a 100%);
+	background-color:#750c00;
+	border-radius:42px;
+	border:1px solid #030000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:30px;
+	font-weight:bold;
+	padding:30px 70px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
   }
+.wrong:hover {
+	background:linear-gradient(to bottom, #bf0a0a 5%, #750c00 100%);
+	background-color:#bf0a0a;
+}
+.wrong:active {
+	position:relative;
+	top:1px;
+}
