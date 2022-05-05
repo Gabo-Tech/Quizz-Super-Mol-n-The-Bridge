@@ -1,5 +1,8 @@
 @import url('http://fonts.cdnfonts.com/css/homer-simpson-revised');
 
+.hide {
+    display: none;
+}
 
 body{
     height: 100vh;
@@ -31,6 +34,10 @@ body{
     align-items: center;
 	position: absolute;
 	background-color: #0000007e;
+}
+
+#question{
+	color: #E4A014;
 }
 
 #text-container{
@@ -152,8 +159,4 @@ a:hover {
 .myButton:active {
 	position:relative;
 	top:1px;
-}
-
-.hide {
-    display: none;
 }
