@@ -4,7 +4,6 @@ body{
     height: 100vh;
 	/*filter: invert(1);*/
 	margin: auto;
-	background-image: url(../assets/logo.png);
 	background-position-x: center;
 	background-position-y: center;
 	background-color: #030000;
@@ -16,6 +15,23 @@ body{
 	font-family: 'Homer Simpson Revised','Dosis', sans-serif;
 }
 
+#logo{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	position: relative;
+	width: 15rem;
+}
+
+#main{
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	position: absolute;
+	background-color: #0000007e;
+}
+
 #text-container{
 	display: flex;
 	justify-content: center;
@@ -23,7 +39,6 @@ body{
 	padding: 2rem;
 	margin-left: 2rem;
 	margin-right: 2rem;
-	background-color: #0000007e;
 }
 
 span{
