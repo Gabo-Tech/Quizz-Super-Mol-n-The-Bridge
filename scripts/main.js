@@ -8,7 +8,7 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const text = document.getElementById("text");
 
-axios.get("https://jsonplaceholder.typicode.com/posts")
+axios.get("https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple")
 .then((res) => console.log(res))
 .catch((err) => console.error(err));
 
