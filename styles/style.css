@@ -92,9 +92,7 @@ a:hover {
 	top:1px;
 }
 
-.hide {
-    display: none;
-}
+
 
 #question{
 	font-size: 5rem;
@@ -161,4 +159,8 @@ a:hover {
 .wrong:active {
 	position:relative;
 	top:1px;
+}
+
+.hide {
+    display: none;
 }
