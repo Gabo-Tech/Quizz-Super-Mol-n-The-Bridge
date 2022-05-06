@@ -51,26 +51,52 @@ function setStatusClass(element, correct) {
     element.classList.add("wrong");
   }
 }
+let correctAnswers = 0;
+
+function correcta () {
+  if (questions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove("hide");
+  } else {
+    if (correctAnswers == 3) {
+        questionContainerElement.classList.add("hide")
+        textCorrect.classList.remove("hide");
+        startButton.innerText = "Restart";
+        startButton.classList.remove("hide");
+      } else {
+        questionContainerElement.classList.add("hide")
+        textCorrect.classList.add("hide")
+        textWrong.classList.remove("hide")
+        startButton.innerText = "Restart";
+        startButton.classList.remove("hide");
+      }
+      correctAnswers = 0;
+
+  }
+}
 
 function selectAnswer() {
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
+    
   });
+
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
-  } else if (correctAnswers == 3) {
-    textCorrect.classList.remove("hide");
-    startButton.innerText = "Restart";
-    startButton.classList.remove("hide");
-  } else {
-    textCorrect.classList.add("hide")
-    textWrong.classList.remove("hide")
-    startButton.innerText = "Restart";
-    startButton.classList.remove("hide");
-  }
+  } 
+  // } else if (correctAnswers == 3) {
+  //   questionContainerElement.classList.add("hide")
+  //   textCorrect.classList.remove("hide");
+  //   startButton.innerText = "Restart";
+  //   startButton.classList.remove("hide");
+  // } else {
+  //   questionContainerElement.classList.add("hide")
+  //   textCorrect.classList.add("hide")
+  //   textWrong.classList.remove("hide")
+  //   startButton.innerText = "Restart";
+  //   startButton.classList.remove("hide");
+  // }
 }
 
-let correctAnswers = 0;
 function showQuestion(question) {
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
@@ -79,20 +105,32 @@ function showQuestion(question) {
     button.classList.add("myButton");
     if (answer.correct) {
       button.dataset.correct = true;
-      correctAnswers++;
-    console.log(correctAnswers)
     }
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener("click", ()=>{
+      selectAnswer()
+      if(button.dataset.correct) {
+        console.log(correctAnswers)
+        correctAnswers++
+        console.log(correctAnswers) 
+
+  correcta()
+      }
+    } );
     answerButtonsElement.appendChild(button);
   });
 }
+
 function resetState() {
   nextButton.classList.add("hide");
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
+  
+
 }
+
 function setNextQuestion() {
+  
   resetState();
   showQuestion(questions[currentQuestionIndex]);
 }
@@ -100,6 +138,8 @@ function setNextQuestion() {
 function startGame() {
   startButton.classList.add("hide");
   textContainer.classList.add("hide");
+  textCorrect.classList.add("hide");
+  textWrong.classList.add("hide");
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
   setNextQuestion();
