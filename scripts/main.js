@@ -1,5 +1,3 @@
-
-
 const API = "https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple";
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
@@ -7,40 +5,16 @@ const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const textContainer = document.getElementById("text-container");
-
+let questions = [];
 const getApi = async () => {
-  const response= await axios.get("https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple")
-  console.log(response);
+  const response= await axios.get("../questions.json")
+  questions = response.data.results; 
+  console.log(questions)
 }
 getApi();
 
 let currentQuestionIndex;
-const questions = [
-  {
-    question: "What is 2 + 2?",
-    answers: [
-      { text: "4", correct: true },
-      { text: "22", correct: false },
-    ],
-  },
-  {
-    question: "Is web development frustrating?",
-    answers: [
-      { text: "Kinda", correct: false },
-      { text: "YES!!!", correct: true },
-      { text: "Um no", correct: false },
-      { text: "IDK", correct: false },
-    ],
-  },
-  {
-    question: "What is 4 * 2?",
-    answers: [
-      { text: "6", correct: false },
-      { text: "8", correct: true },
-      { text: "Yes", correct: false },
-    ],
-  },
-];
+
 
 function setStatusClass(element, correct) {
   if (correct) {

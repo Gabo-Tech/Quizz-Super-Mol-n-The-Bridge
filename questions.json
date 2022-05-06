@@ -1,0 +1,96 @@
+{
+    "response_code": 0,
+    "results": [
+        {
+            "question": "¿Cual es la prueba de fe de los canteros?",
+            "answers": [
+              { "text": "Dejarse caer desde un edificio de 5 pisos", "correct": false },
+              { "text": "Pasar por delante del resto con los ojos cerrados mientras te azotan", "correct": false },
+              { "text": "Dejarse caer desde un escenario bajito", "correct": true },
+              { "text": "Arrastrar la piedra de la verguenza", "correct": false }
+            ]
+          },
+          {
+            "question": "¿Quien es el elegido?",
+            "answers": [
+              { "text": "Carl", "correct": false },
+              { "text": "Lenny", "correct": false },
+              { "text": "El rarito lider de la secta", "correct": false },
+              { "text": "Homer", "correct": true }
+            ]
+          },
+          {
+            "question": "¿Que roca es más grande?",
+            "answers": [
+              { "text": "La de la verguenza", "correct": false },
+              { "text": "La del elegido", "correct": true },
+              { "text": "La de  Sr. Burns", "correct": false },
+              { "text": "La de Lenny", "correct": false }
+            ]
+          },
+          {
+            "question": "¿Qué son los canteros?",
+            "answers": [
+              { "text": "Un club de golf", "correct": false },
+              { "text": "Un grupo de rock", "correct": false },
+              { "text": "Un equipo de bolos", "correct": false },
+              { "text": "La sociedad secreta que mantiene la atlantida hundida", "correct": true }
+            ]
+          },
+          {
+            "question": "¿Cómo se destruyeron los canteros?",
+            "answers": [
+              { "text": "Un meteorito destruyó la sede", "correct": false },
+              { "text": "Homer Simpson empezó a liderar", "correct": true },
+              { "text": "El gobierno hizo una redada y todos terminaron en prisión", "correct": false },
+              { "text": "Los pinpals se hizieron con los canteros", "correct": false }
+            ]
+          },
+          {
+            "question": "¿Que sociedad secreta surgió tras la destrucción de los canteros?",
+            "answers": [
+              { "text": "La antigua y mistica Sociedad de los No Homers", "correct": true },
+              { "text": "La liga del mal del Sr. Burns", "correct": false },
+              { "text": "Dolorgasmo", "correct": false },
+              { "text": "Sí", "correct": false }
+            ]
+          },
+          {
+            "question": "¿Cuál es el nombre real del director Skinner?",
+            "answers": [
+              { "text": "Armin Tanzarian", "correct": true },
+              { "text": "Charlie Tinewarth", "correct": false },
+              { "text": "Jeff Albertson", "correct": false },
+              { "text": "Nedward Thomas", "correct": false }
+            ]
+          },
+          {
+            "question": "¿Cuál es el nombre real del vendedor de Comics?",
+            "answers": [
+              { "text": "Armin Tanzarian", "correct": false },
+              { "text": "Charlie Tinewarth", "correct": false },
+              { "text": "Jeff Albertson", "correct": true },
+              { "text": "Nedward Thomas", "correct": false }
+            ]
+          },
+          {
+            "question": "¿Qué personaje fue elegido en 1998 como una de las 'personas' más influyentes del siglo XX?",
+            "answers": [
+              { "text": "Homer Simpson", "correct": false },
+              { "text": "Maggie Simpson", "correct": false },
+              { "text": "Lisa Simpson", "correct": false },
+              { "text": "Bart Simpson", "correct": true},
+              { "text": "Bort", "correct": false }
+            ]
+          },
+          {
+            "question": "¿Cual es el segundo nombe de Milhouse?",
+            "answers": [
+              { "text": "Salazar", "correct": false },
+              { "text": "Slitherin", "correct": false },
+              { "text": "Stalin", "correct": false },
+              { "text": "Mussolini", "correct": true }
+            ]
+          }
+    ]
+}
