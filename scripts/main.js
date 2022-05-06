@@ -1,12 +1,12 @@
-
-
 const API = "https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple";
-const startButton = document.getElementById("start-btn");
-const nextButton = document.getElementById("next-btn");
+const textContainer = document.getElementById("text-container");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
-const textContainer = document.getElementById("text-container");
+const startButton = document.getElementById("start-btn");
+const nextButton = document.getElementById("next-btn");
+const textCorrect = document.getElementById("text-correct");
+const textWrong = document.getElementById("text-wrong")
 
 const getApi = async () => {
   const response= await axios.get("https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple")
@@ -58,12 +58,19 @@ function selectAnswer() {
   });
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
+  } else if (correctAnswers == 3) {
+    textCorrect.classList.remove("hide");
+    startButton.innerText = "Restart";
+    startButton.classList.remove("hide");
   } else {
+    textCorrect.classList.add("hide")
+    textWrong.classList.remove("hide")
     startButton.innerText = "Restart";
     startButton.classList.remove("hide");
   }
 }
 
+let correctAnswers = 0;
 function showQuestion(question) {
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
@@ -72,6 +79,8 @@ function showQuestion(question) {
     button.classList.add("myButton");
     if (answer.correct) {
       button.dataset.correct = true;
+      correctAnswers++;
+    console.log(correctAnswers)
     }
     button.addEventListener("click", selectAnswer);
     answerButtonsElement.appendChild(button);
