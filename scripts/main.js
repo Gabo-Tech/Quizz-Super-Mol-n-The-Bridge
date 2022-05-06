@@ -3,16 +3,12 @@ const textContainer = document.getElementById("text-container");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
-<<<<<<< HEAD
-const textContainer = document.getElementById("text-container");
-let questions = [];
-=======
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const textCorrect = document.getElementById("text-correct");
 const textWrong = document.getElementById("text-wrong")
 
->>>>>>> b7af66739a7b36dec328223c231a06f5e885eae3
+let questions = [];
 const getApi = async () => {
   const response= await axios.get("../questions.json")
   questions = response.data.results; 
@@ -38,7 +34,7 @@ function correcta () {
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
-    if (correctAnswers == 3) {
+    if (correctAnswers == 10) {
         questionContainerElement.classList.add("hide")
         textCorrect.classList.remove("hide");
         startButton.innerText = "Restart";
