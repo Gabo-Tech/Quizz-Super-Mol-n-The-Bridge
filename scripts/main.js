@@ -107,3 +107,15 @@ nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   setNextQuestion();
 });
+
+// IMÁGENES RÁNDOM para cada pregunta
+// Dejo esto comentado hasta que vuelva a funcionar la página porque no sé dónde ponerlo
+
+const imgs = ['./assets/Number_1', './assets/Number_2', './assets/Number_5', './assets/Number_12', './assets/Number_14', './assets/Number_21', './assets/Number_22', './assets/Number_29', './assets/Number_36', './assets/Number_50', './assets/Number_51', './assets/Number_59', './assets/Number_66', './assets/Number_67', './assets/Number_79', './assets/Number_85', './assets/Number_111', './assets/Number_314', './assets/Number_600', './assets/Number_908']
+
+for (let imagen of imgs){
+    button.addEventListener('click', changeImg);
+    function changeImg (){
+        imagen.setAttribute('src', getRandom(imgs))
+    }
+}
