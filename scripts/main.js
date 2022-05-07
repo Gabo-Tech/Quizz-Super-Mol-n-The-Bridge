@@ -1,4 +1,3 @@
-const API = "https://opentdb.com/api.php?amount=10&category=17&difficulty=hard&type=multiple";
 const textContainer = document.getElementById("text-container");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
@@ -10,14 +9,13 @@ const textWrong = document.getElementById("text-wrong")
 
 let questions = [];
 const getApi = async () => {
-  const response= await axios.get("../questions.json")
+  const response = await axios.get("../questions.json")
   questions = response.data.results; 
   console.log(questions)
 }
 getApi();
 
 let currentQuestionIndex;
-
 
 function setStatusClass(element, correct) {
   if (correct) {
@@ -28,6 +26,7 @@ function setStatusClass(element, correct) {
     element.classList.add("wrong");
   }
 }
+
 let correctAnswers = 0;
 
 function correcta () {
@@ -37,41 +36,26 @@ function correcta () {
     if (correctAnswers == 10) {
         questionContainerElement.classList.add("hide")
         textCorrect.classList.remove("hide");
-        startButton.innerText = "Restart";
+        startButton.innerText = "Vuelve a intentarlo";
         startButton.classList.remove("hide");
       } else {
         questionContainerElement.classList.add("hide")
         textCorrect.classList.add("hide")
         textWrong.classList.remove("hide")
-        startButton.innerText = "Restart";
+        startButton.innerText = "Vuelve a intentarlo";
         startButton.classList.remove("hide");
       }
       correctAnswers = 0;
-
   }
 }
 
 function selectAnswer() {
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
-    
   });
-
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
-  } 
-  // } else if (correctAnswers == 3) {
-  //   questionContainerElement.classList.add("hide")
-  //   textCorrect.classList.remove("hide");
-  //   startButton.innerText = "Restart";
-  //   startButton.classList.remove("hide");
-  // } else {
-  //   questionContainerElement.classList.add("hide")
-  //   textCorrect.classList.add("hide")
-  //   textWrong.classList.remove("hide")
-  //   startButton.innerText = "Restart";
-  //   startButton.classList.remove("hide");
-  // }
+  }
 }
 
 function showQuestion(question) {
@@ -88,9 +72,8 @@ function showQuestion(question) {
       if(button.dataset.correct) {
         console.log(correctAnswers)
         correctAnswers++
-        console.log(correctAnswers) 
-
-  correcta()
+        console.log(correctAnswers)
+        correcta()
       }
     } );
     answerButtonsElement.appendChild(button);
@@ -102,12 +85,9 @@ function resetState() {
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
-  
-
 }
 
 function setNextQuestion() {
-  
   resetState();
   showQuestion(questions[currentQuestionIndex]);
 }

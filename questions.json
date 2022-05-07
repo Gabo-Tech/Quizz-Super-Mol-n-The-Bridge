@@ -2,7 +2,7 @@
     "response_code": 0,
     "results": [
         {
-            "question": "¿Cual es la prueba de fe de los canteros?",
+            "question": "¿Cuál es la Prueba de Fe de Los Canteros?",
             "answers": [
               { "text": "Dejarse caer desde un edificio de 5 pisos", "correct": false },
               { "text": "Pasar por delante del resto con los ojos cerrados mientras te azotan", "correct": false },
@@ -11,7 +11,7 @@
             ]
           },
           {
-            "question": "¿Quien es el elegido?",
+            "question": "¿Quién es el elegido?",
             "answers": [
               { "text": "Carl", "correct": false },
               { "text": "Lenny", "correct": false },
@@ -20,7 +20,7 @@
             ]
           },
           {
-            "question": "¿Que roca es más grande?",
+            "question": "¿Qué roca es más grande?",
             "answers": [
               { "text": "La de la verguenza", "correct": false },
               { "text": "La del elegido", "correct": true },
@@ -29,25 +29,25 @@
             ]
           },
           {
-            "question": "¿Qué son los canteros?",
+            "question": "¿Qué son Los Canteros?",
             "answers": [
               { "text": "Un club de golf", "correct": false },
               { "text": "Un grupo de rock", "correct": false },
               { "text": "Un equipo de bolos", "correct": false },
-              { "text": "La sociedad secreta que mantiene la atlantida hundida", "correct": true }
+              { "text": "La sociedad secreta que mantiene la Atlántida hundida", "correct": true }
             ]
           },
           {
-            "question": "¿Cómo se destruyeron los canteros?",
+            "question": "¿Cómo se destruyeron Los Canteros?",
             "answers": [
               { "text": "Un meteorito destruyó la sede", "correct": false },
               { "text": "Homer Simpson empezó a liderar", "correct": true },
               { "text": "El gobierno hizo una redada y todos terminaron en prisión", "correct": false },
-              { "text": "Los pinpals se hizieron con los canteros", "correct": false }
+              { "text": "Los Pinpals se hizieron con Los Canteros", "correct": false }
             ]
           },
           {
-            "question": "¿Que sociedad secreta surgió tras la destrucción de los canteros?",
+            "question": "¿Qué sociedad secreta surgió tras la destrucción de Los Canteros?",
             "answers": [
               { "text": "La antigua y mistica Sociedad de los No Homers", "correct": true },
               { "text": "La liga del mal del Sr. Burns", "correct": false },
