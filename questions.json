@@ -84,7 +84,7 @@
             ]
           },
           {
-            "question": "¿Cual es el segundo nombe de Milhouse?",
+            "question": "¿Cuál es el segundo nombe de Milhouse?",
             "answers": [
               { "text": "Salazar", "correct": false },
               { "text": "Slitherin", "correct": false },
