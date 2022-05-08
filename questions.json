@@ -49,7 +49,7 @@
           {
             "question": "¿Qué sociedad secreta surgió tras la destrucción de Los Canteros?",
             "answers": [
-              { "text": "La antigua y mistica Sociedad de los No Homers", "correct": true },
+              { "text": "La antigua y mística Sociedad de los No Homers", "correct": true },
               { "text": "La liga del mal del Sr. Burns", "correct": false },
               { "text": "Dolorgasmo", "correct": false },
               { "text": "Sí", "correct": false }

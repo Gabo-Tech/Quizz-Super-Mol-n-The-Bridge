@@ -62,21 +62,26 @@ a:hover {
 	font-size:35px;
 }
 
-/* #question-container{
-
-} */
+#question-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 #question{
+	display: flex;
+	text-align: center;
 	font-size: 5rem;
 	font-weight: 900;
 	padding: 5rem;
-
 }
 
 #answer-buttons{
 	display: flex;
-	justify-content: space-around;
-	margin-bottom: 3rem;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 5rem;
 }
 
 .correct {
@@ -159,6 +164,24 @@ a:hover {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+/* #results-container{
+} */
+
+#text-correct{
+	display: flex;
+	flex-direction: column;
+}
+
+#text-wrong{
+	display: flex;
+	flex-direction: column;
+}
+
+#img-wrong{
+	height: 5rem;
+	width: auto;
 }
 
 .hide {
