@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
+    <!-- <div class="contenedor">
+      <canvas id="myChart" ></canvas>
+    </div> -->
     <img id="logo" src="./assets/logo.png" alt="Logo de Los Canteros">
     <div id="main">
       <div id="text-container">
@@ -29,14 +32,14 @@
           <img id="img-correct" src="./assets/Homer_the_Chosen_One.webp" alt="El Elegido">
           <audio autoplay src="./stonecutters-song.mp3"></audio>
           <div class="contenedor">
-            <canvas id="myChart"></canvas>
+            <canvas id="myChart" width="320" height="240"></canvas>
           </div>
         </div>
         <div id="text-wrong" class="hide">
           <span>No has superado la prueba, ahora deberás cargar con La Roca de la Vergüenza.</span>
           <img id="img-wrong" src="./assets/Homer_with_the_stone_of_triumph_Tapped_Out.webp" alt="Homer con La Roca de la Vergüenza">
           <div class="contenedor">
-            <canvas id="myChart"></canvas>
+            <canvas id="myChart" width="320" height="240"></canvas>
           </div>
         </div>
       </div>
@@ -48,7 +51,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script async src="./scripts/main.js"></script><!--Quizz-Super-Mol-n-The-Bridge/-->
   </body>
 </html>

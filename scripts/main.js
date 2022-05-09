@@ -132,9 +132,6 @@ const labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
 
 const myChart = new Chart('myChart', config);
 
-
-
-
 // IMÁGENES RÁNDOM para cada pregunta
 // Dejo esto comentado hasta que vuelva a funcionar la página porque no sé dónde ponerlo
 

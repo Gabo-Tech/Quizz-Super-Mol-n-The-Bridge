@@ -11,6 +11,7 @@ body{
 	flex-direction: column;
     justify-content: center;
     align-items: center;
+	flex-wrap: wrap;
 	font-family: 'Homer Simpson Revised','Dosis', sans-serif;
 }
 
@@ -27,12 +28,9 @@ body{
 	flex-direction: column;
     justify-content: center;
     align-items: center;
+	flex-wrap: wrap;
 	position: absolute;
 	background-color: #0000007e;
-}
-
-#question{
-	color: #E4A014;
 }
 
 #text-container{
@@ -68,6 +66,7 @@ a:hover {
 }
 
 #question{
+	color: #E4A014;
 	display: flex;
 	text-align: center;
 	font-size: 3rem;
