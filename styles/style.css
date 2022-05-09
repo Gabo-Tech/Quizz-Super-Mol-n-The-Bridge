@@ -2,7 +2,6 @@
 
 body{
     height: 100vh;
-	/*filter: invert(1);*/
 	margin: auto;
 	background-position-x: center;
 	background-position-y: center;
@@ -71,7 +70,7 @@ a:hover {
 #question{
 	display: flex;
 	text-align: center;
-	font-size: 5rem;
+	font-size: 2rem;
 	font-weight: 900;
 	padding: 5rem;
 }
@@ -81,7 +80,7 @@ a:hover {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding: 5rem;
+	padding: 2rem;
 }
 
 .correct {
@@ -172,21 +171,25 @@ a:hover {
 #text-correct{
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #img-correct{
-	height: 5rem;
-	width: auto;
+	height: auto;
+	width: 10rem;
 }
 
 #text-wrong{
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #img-wrong{
-	height: 5rem;
-	width: auto;
+	height: auto;
+	width: 10rem;
 }
 
 .hide {
