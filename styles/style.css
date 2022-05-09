@@ -166,8 +166,12 @@ a:hover {
 	top:1px;
 }
 
-/* #results-container{
-} */
+#results-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
 #text-correct{
 	display: flex;
@@ -191,6 +195,11 @@ a:hover {
 #img-wrong{
 	height: auto;
 	width: 25rem;
+}
+
+#myChart{
+height: 5rem;
+width: 5rem;
 }
 
 .hide {
