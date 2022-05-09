@@ -92,6 +92,7 @@ function resetState() {
 function setNextQuestion() {
   resetState();
   showQuestion(questions[currentQuestionIndex]);
+  
 }
 
 function startGame() {
@@ -121,4 +122,3 @@ nextButton.addEventListener("click", () => {
 //         imagen.setAttribute('src', getRandom(imgs))
 //     }
 // }
-
