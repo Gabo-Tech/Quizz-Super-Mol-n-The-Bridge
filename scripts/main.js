@@ -112,6 +112,30 @@ nextButton.addEventListener("click", () => {
   setNextQuestion();
 });
 
+// GRÁFICA
+const labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Mi primera gráfica',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {}
+  };
+
+const myChart = new Chart('myChart', config);
+
+
+
+
 // IMÁGENES RÁNDOM para cada pregunta
 // Dejo esto comentado hasta que vuelva a funcionar la página porque no sé dónde ponerlo
 
