@@ -2,10 +2,10 @@ const textContainer = document.getElementById("text-container");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
-const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const textCorrect = document.getElementById("text-correct");
 const textWrong = document.getElementById("text-wrong")
+const startButton = document.getElementById("start-btn");
 
 let questions = [];
 const getApi = async () => {
@@ -30,18 +30,19 @@ function setStatusClass(element, correct) {
 let correctAnswers = 0;
 
 function correcta () {
+  console.log(correctAnswers)
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
-    if (correctAnswers == 10) {
-        questionContainerElement.classList.add("hide")
-        textCorrect.classList.remove("hide");
-        startButton.innerText = "Vuelve a intentarlo";
-        startButton.classList.remove("hide");
+    if (correctAnswers !== 10) {
+      questionContainerElement.classList.add("hide")
+      textCorrect.classList.add("hide")
+      textWrong.classList.remove("hide")
+      startButton.innerText = "Vuelve a intentarlo";
+      startButton.classList.remove("hide");
       } else {
         questionContainerElement.classList.add("hide")
-        textCorrect.classList.add("hide")
-        textWrong.classList.remove("hide")
+        textCorrect.classList.remove("hide");
         startButton.innerText = "Vuelve a intentarlo";
         startButton.classList.remove("hide");
       }
@@ -73,8 +74,8 @@ function showQuestion(question) {
         console.log(correctAnswers)
         correctAnswers++
         console.log(correctAnswers)
-        correcta()
       }
+      correcta()
     } );
     answerButtonsElement.appendChild(button);
   });
