@@ -6,7 +6,7 @@ const nextButton = document.getElementById("next-btn");
 const textCorrect = document.getElementById("text-correct");
 const textWrong = document.getElementById("text-wrong")
 const startButton = document.getElementById("start-btn");
-
+const audio = new Audio('./stonecutters-song.mp3');
 let questions = [];
 const getApi = async () => {
   const response = await axios.get("../questions.json")
@@ -22,7 +22,7 @@ function setStatusClass(element, correct) {
     element.classList.remove("myButton");
     element.classList.add("correct");
   } else {
-    element.classList.remove("myButton");
+    element.clssList.remove("myButton");
     element.classList.add("wrong");
   }
 }
@@ -35,6 +35,7 @@ function correcta () {
     nextButton.classList.remove("hide");
   } else {
     if (correctAnswers !== 10) {
+      audio.play()
       questionContainerElement.classList.add("hide")
       textCorrect.classList.add("hide")
       textWrong.classList.remove("hide")
@@ -53,7 +54,7 @@ function correcta () {
 function selectAnswer() {
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
-  });
+  })
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   }
