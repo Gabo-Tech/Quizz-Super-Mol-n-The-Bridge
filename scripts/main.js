@@ -6,8 +6,13 @@ const nextButton = document.getElementById("next-btn");
 const textCorrect = document.getElementById("text-correct");
 const textWrong = document.getElementById("text-wrong")
 const startButton = document.getElementById("start-btn");
+const ctx = document.getElementById('myChart').getContext('2d');
 const audio = new Audio('./stonecutters-song.mp3');
+let partida = 1;
 let questions = [];
+let correctAnswers = 0;
+let currentQuestionIndex;
+
 const getApi = async () => {
   const response = await axios.get("../questions.json")
   questions = response.data.results; 
@@ -15,19 +20,16 @@ const getApi = async () => {
 }
 getApi();
 
-let currentQuestionIndex;
 
 function setStatusClass(element, correct) {
   if (correct) {
     element.classList.remove("myButton");
     element.classList.add("correct");
   } else {
-    element.clssList.remove("myButton");
+    element.classList.remove("myButton");
     element.classList.add("wrong");
   }
 }
-
-let correctAnswers = 0;
 
 function correcta () {
   console.log(correctAnswers)
@@ -35,20 +37,96 @@ function correcta () {
     nextButton.classList.remove("hide");
   } else {
     if (correctAnswers !== 10) {
-      audio.play()
       questionContainerElement.classList.add("hide")
       textCorrect.classList.add("hide")
       textWrong.classList.remove("hide")
       startButton.innerText = "Vuelve a intentarlo";
       startButton.classList.remove("hide");
-      } else {
+      localStorage.setItem(partida, correctAnswers);
+      const arrLocalStorageKeys = Object.keys({ ...localStorage });
+      const arrLocalStorageValues = Object.values({ ...localStorage });
+      console.log(arrLocalStorageKeys + arrLocalStorageValues);
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: arrLocalStorageKeys,
+            datasets: [{
+                data: arrLocalStorageValues,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+      });
+      myChart();
+    } else {
         audio.play();
         questionContainerElement.classList.add("hide")
         textCorrect.classList.remove("hide");
         startButton.innerText = "Vuelve a intentarlo";
         startButton.classList.remove("hide");
-      }
-      correctAnswers = 0;
+        localStorage.setItem(partida, correctAnswers);
+        const arrLocalStorageKeys = Object.keys({ ...localStorage });
+        const arrLocalStorageValues = Object.values({ ...localStorage });
+        console.log(arrLocalStorageKeys + arrLocalStorageValues);
+        const myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: arrLocalStorageKeys,
+              datasets: [{
+                  data: arrLocalStorageValues,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+        });
+        myChart();
+    }
+    correctAnswers = 0;
+    partida++;
   }
 }
 
@@ -88,7 +166,6 @@ function resetState() {
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
-
 }
 
 function setNextQuestion() {
@@ -98,14 +175,14 @@ function setNextQuestion() {
 }
 
 function startGame() {
-  audio.pause();
-  audio.currentTime = 0;
   startButton.classList.add("hide");
   textContainer.classList.add("hide");
   textCorrect.classList.add("hide");
   textWrong.classList.add("hide");
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
+  audio.pause();
+  audio.currentTime = 0;
   setNextQuestion();
 }
 
