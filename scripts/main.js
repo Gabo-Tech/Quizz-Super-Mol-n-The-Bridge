@@ -6,7 +6,7 @@ const nextButton = document.getElementById("next-btn");
 const textCorrect = document.getElementById("text-correct");
 const textWrong = document.getElementById("text-wrong")
 const startButton = document.getElementById("start-btn");
-
+const audio = new Audio('./stonecutters-song.mp3');
 let questions = [];
 const getApi = async () => {
   const response = await axios.get("../questions.json")
@@ -41,6 +41,7 @@ function correcta () {
       startButton.innerText = "Vuelve a intentarlo";
       startButton.classList.remove("hide");
       } else {
+        audio.play();
         questionContainerElement.classList.add("hide")
         textCorrect.classList.remove("hide");
         startButton.innerText = "Vuelve a intentarlo";
@@ -86,6 +87,7 @@ function resetState() {
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
+
 }
 
 function setNextQuestion() {
@@ -95,6 +97,8 @@ function setNextQuestion() {
 }
 
 function startGame() {
+  audio.pause();
+  audio.currentTime = 0;
   startButton.classList.add("hide");
   textContainer.classList.add("hide");
   textCorrect.classList.add("hide");
