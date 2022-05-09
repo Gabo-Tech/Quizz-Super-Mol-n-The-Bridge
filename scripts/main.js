@@ -14,8 +14,7 @@ let questions = [];
 
 const getApi = async () => {
   const response = await axios.get("../questions.json")
-  questions = response.data.results; 
-  console.log(questions)
+  questions = response.data.results;
 }
 getApi();
 
