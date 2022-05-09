@@ -82,6 +82,7 @@ a:hover {
 	align-items: center;
 	padding: 2rem;
 	gap: 1rem;
+	width: 75rem;
 }
 
 .correct {
@@ -190,7 +191,7 @@ a:hover {
 
 #img-wrong{
 	height: auto;
-	width: 10rem;
+	width: 25rem;
 }
 
 .hide {
