@@ -22,7 +22,7 @@ function setStatusClass(element, correct) {
     element.classList.remove("myButton");
     element.classList.add("correct");
   } else {
-    element.classList.remove("myButton");
+    element.clssList.remove("myButton");
     element.classList.add("wrong");
   }
 }
@@ -35,6 +35,7 @@ function correcta () {
     nextButton.classList.remove("hide");
   } else {
     if (correctAnswers !== 10) {
+      audio.play()
       questionContainerElement.classList.add("hide")
       textCorrect.classList.add("hide")
       textWrong.classList.remove("hide")
@@ -54,7 +55,7 @@ function correcta () {
 function selectAnswer() {
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
-  });
+  })
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   }
