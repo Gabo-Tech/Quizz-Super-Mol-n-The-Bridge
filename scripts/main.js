@@ -7,6 +7,7 @@ const textCorrect = document.getElementById("text-correct");
 const textWrong = document.getElementById("text-wrong")
 const startButton = document.getElementById("start-btn");
 const ctx = document.getElementById('myChart');
+const ctx2 = document.getElementById('myChart2')
 //const laMierdaDeLaGráfica = getElementById('contenedor');
 const audio = new Audio('./stonecutters-song.mp3');
 let partida = 1;
@@ -14,6 +15,8 @@ let questions = [];
 let correctAnswers = 0;
 let currentQuestionIndex;
 let myChart;
+let myChart2;
+let chartOptions
 const getApi = async () => {
   const response = await axios.get("../questions.json")
   questions = response.data.results;
@@ -39,8 +42,60 @@ function addData(chart, label, data) {
   
 }
 
-
+function showGraph(arrLocalStorageKeys,arrLocalStorageValues){
+  console.log(arrLocalStorageKeys,arrLocalStorageValues)
+  if (myChart || myChart2){
+      myChart.destroy()
+      myChart2.destroy()
+    }
+  chartOptions =  {
+    type: 'bar',
+    data: {
+        labels: arrLocalStorageKeys,
+        datasets: [{
+            label: "",
+            data: arrLocalStorageValues,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                display: true,
+                stepSize: 1,
+                min: 0,
+                max: 10,
+              },
+            },
+          ],
+        },
+        legend: {
+          display: false
+      }
+    }
+   
+  }
+}
 function correcta () {
+
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
@@ -61,57 +116,14 @@ function correcta () {
         arrLocalStorageValues.push(valor);
       }
       console.log(arrLocalStorageKeys, arrLocalStorageValues);
+      showGraph(arrLocalStorageKeys,arrLocalStorageValues)
       // const arrLocalStorageKeys = Object.keys({ ...localStorage });
       // const arrLocalStorageValues = Object.values({ ...localStorage });
       //console.log(arrLocalStorageKeys,  arrLocalStorageValues);
-      // if (myChart){
-      //   myChart.destroy()
-      // }
-      myChart = new Chart("myChart", {
-        type: 'bar',
-        data: {
-            labels: arrLocalStorageKeys,
-            datasets: [{
-                label: "",
-                data: arrLocalStorageValues,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    display: true,
-                    stepSize: 1,
-                    min: 0,
-                    max: 10,
-                  },
-                },
-              ],
-            },
-            legend: {
-              display: false
-          }
-        }
-       
-      });
+    
+     
+      myChart = new Chart("myChart",chartOptions);
+      myChart2 = new Chart("myChart2",chartOptions);
     } else {
         audio.play();
         questionContainerElement.classList.add("hide")
@@ -119,10 +131,17 @@ function correcta () {
         startButton.innerText = "Vuelve a intentarlo";
         startButton.classList.remove("hide");
         //ctx.classList.remove("hide");
-        localStorage.setItem(partida, correctAnswers);
-        const arrLocalStorageKeys = Object.keys({ ...localStorage });
-        const arrLocalStorageValues = Object.values({ ...localStorage });
+        localStorage.setItem(partida, JSON.stringify(correctAnswers));
+      const arrLocalStorageKeys = [];
+      const arrLocalStorageValues = [];
+      for (let i=0; i<localStorage.length; i++){
+        let key = localStorage.key(i);
+        let valor = localStorage.getItem(key);
+        arrLocalStorageKeys.push(key);
+        arrLocalStorageValues.push(valor);
+      }
         console.log(arrLocalStorageKeys , arrLocalStorageValues);
+        showGraph(arrLocalStorageKeys,arrLocalStorageValues)
         // new Chart(ctx, {
         //   type: 'bar',
         //   data: {
@@ -157,6 +176,9 @@ function correcta () {
         //   }
         // });
         //addData(myChart,arrLocalStorageKeys, arrLocalStorageValues);
+        
+      myChart = new Chart("myChart",chartOptions);
+      myChart2 = new Chart("myChart2",chartOptions);
     }
     correctAnswers = 0;
     partida++;
