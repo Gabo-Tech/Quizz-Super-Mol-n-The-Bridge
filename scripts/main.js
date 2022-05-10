@@ -37,69 +37,69 @@ function setStatusClass(element, correct) {
 function addData(chart, label, data) {
   chart.data.labels.push(label);
   chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
+    dataset.data.push(data);
   });
-  
+
 }
 
-function showGraph(arrLocalStorageKeys,arrLocalStorageValues){
-  console.log(arrLocalStorageKeys,arrLocalStorageValues)
-  if (myChart || myChart2){
-      myChart.destroy()
-      myChart2.destroy()
-    }
-  chartOptions =  {
+function showGraph(arrLocalStorageKeys, arrLocalStorageValues) {
+  console.log(arrLocalStorageKeys, arrLocalStorageValues)
+  if (myChart || myChart2) {
+    myChart.destroy()
+    myChart2.destroy()
+  }
+  chartOptions = {
     type: 'bar',
     data: {
-        labels: arrLocalStorageKeys,
-        datasets: [{
-            label: "",
-            data: arrLocalStorageValues,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+      labels: arrLocalStorageKeys,
+      datasets: [{
+        label: "",
+        data: arrLocalStorageValues,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
     },
     options: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                display: true,
-                stepSize: 1,
-                min: 0,
-                max: 10,
-              },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              display: true,
+              stepSize: 1,
+              min: 0,
+              max: 10,
             },
-          ],
-        },
-        legend: {
-          display: false
+          },
+        ],
+      },
+      legend: {
+        display: false
       }
     }
-   
+
   }
 }
-function correcta () {
+function correcta() {
 
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
-    if (correctAnswers !== 10) {    
+    if (correctAnswers !== 10) {
       questionContainerElement.classList.add("hide")
       textCorrect.classList.add("hide")
       textWrong.classList.remove("hide")
@@ -107,78 +107,92 @@ function correcta () {
       startButton.classList.remove("hide");
       //ctx.classList.remove("hide");
       localStorage.setItem(partida, JSON.stringify(correctAnswers));
-      const arrLocalStorageKeys = [];
-      const arrLocalStorageValues = [];
-      for (let i=0; i<localStorage.length; i++){
+      let partidas = []
+      for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         let valor = localStorage.getItem(key);
-        arrLocalStorageKeys.push(key);
-        arrLocalStorageValues.push(valor);
+        let resultado = {
+          numeroPartida: key,
+          resultadoPartida: valor
+        }
+        console.log(resultado)
+        // arrLocalStorageKeys.unshift(key);
+        // arrLocalStorageValues.unshift(valor);
+        partidas.push(resultado)
       }
+      let partidasOrdenadas = partidas.sort((a, b) => a.numeroPartida - b.numeroPartida)
+      let arrLocalStorageKeys = partidasOrdenadas.map(partida => partida.numeroPartida)
+      let arrLocalStorageValues = partidasOrdenadas.map(partida => partida.resultadoPartida)
       console.log(arrLocalStorageKeys, arrLocalStorageValues);
-      showGraph(arrLocalStorageKeys,arrLocalStorageValues)
+      showGraph(arrLocalStorageKeys, arrLocalStorageValues)
       // const arrLocalStorageKeys = Object.keys({ ...localStorage });
       // const arrLocalStorageValues = Object.values({ ...localStorage });
       //console.log(arrLocalStorageKeys,  arrLocalStorageValues);
-    
-     
-      myChart = new Chart("myChart",chartOptions);
-      myChart2 = new Chart("myChart2",chartOptions);
+
+
+      myChart = new Chart("myChart", chartOptions);
+      myChart2 = new Chart("myChart2", chartOptions);
     } else {
-        audio.play();
-        questionContainerElement.classList.add("hide")
-        textCorrect.classList.remove("hide");
-        startButton.innerText = "Vuelve a intentarlo";
-        startButton.classList.remove("hide");
-        //ctx.classList.remove("hide");
-        localStorage.setItem(partida, JSON.stringify(correctAnswers));
-      const arrLocalStorageKeys = [];
-      const arrLocalStorageValues = [];
-      for (let i=0; i<localStorage.length; i++){
+      audio.play();
+      questionContainerElement.classList.add("hide")
+      textCorrect.classList.remove("hide");
+      startButton.innerText = "Vuelve a intentarlo";
+      startButton.classList.remove("hide");
+      //ctx.classList.remove("hide");
+      localStorage.setItem(partida, JSON.stringify(correctAnswers));
+      let partidas = []
+      for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         let valor = localStorage.getItem(key);
-        arrLocalStorageKeys.push(key);
-        arrLocalStorageValues.push(valor);
+        let resultado = {
+          numeroPartida: key,
+          resultadoPartida: valor
+        }
+        partidas.push(resultado)
+
       }
-        console.log(arrLocalStorageKeys , arrLocalStorageValues);
-        showGraph(arrLocalStorageKeys,arrLocalStorageValues)
-        // new Chart(ctx, {
-        //   type: 'bar',
-        //   data: {
-        //       labels: arrLocalStorageKeys,
-        //       datasets: [{
-        //           data: arrLocalStorageValues,
-        //           backgroundColor: [
-        //               'rgba(255, 99, 132, 0.2)',
-        //               'rgba(54, 162, 235, 0.2)',
-        //               'rgba(255, 206, 86, 0.2)',
-        //               'rgba(75, 192, 192, 0.2)',
-        //               'rgba(153, 102, 255, 0.2)',
-        //               'rgba(255, 159, 64, 0.2)'
-        //           ],
-        //           borderColor: [
-        //               'rgba(255, 99, 132, 1)',
-        //               'rgba(54, 162, 235, 1)',
-        //               'rgba(255, 206, 86, 1)',
-        //               'rgba(75, 192, 192, 1)',
-        //               'rgba(153, 102, 255, 1)',
-        //               'rgba(255, 159, 64, 1)'
-        //           ],
-        //           borderWidth: 1
-        //       }]
-        //   },
-        //   options: {
-        //       scales: {
-        //           y: {
-        //               beginAtZero: true
-        //           }
-        //       }
-        //   }
-        // });
-        //addData(myChart,arrLocalStorageKeys, arrLocalStorageValues);
-        
-      myChart = new Chart("myChart",chartOptions);
-      myChart2 = new Chart("myChart2",chartOptions);
+      let partidasOrdenadas = partidas.sort((a, b) => a.numeroPartida - b.numeroPartida)
+      let arrLocalStorageKeys = partidasOrdenadas.map(partida => partida.numeroPartida)
+      let arrLocalStorageValues = partidasOrdenadas.map(partida => partida.resultadoPartida)
+      console.log(arrLocalStorageKeys, arrLocalStorageValues);
+      showGraph(arrLocalStorageKeys, arrLocalStorageValues)
+      // new Chart(ctx, {
+      //   type: 'bar',
+      //   data: {
+      //       labels: arrLocalStorageKeys,
+      //       datasets: [{
+      //           data: arrLocalStorageValues,
+      //           backgroundColor: [
+      //               'rgba(255, 99, 132, 0.2)',
+      //               'rgba(54, 162, 235, 0.2)',
+      //               'rgba(255, 206, 86, 0.2)',
+      //               'rgba(75, 192, 192, 0.2)',
+      //               'rgba(153, 102, 255, 0.2)',
+      //               'rgba(255, 159, 64, 0.2)'
+      //           ],
+      //           borderColor: [
+      //               'rgba(255, 99, 132, 1)',
+      //               'rgba(54, 162, 235, 1)',
+      //               'rgba(255, 206, 86, 1)',
+      //               'rgba(75, 192, 192, 1)',
+      //               'rgba(153, 102, 255, 1)',
+      //               'rgba(255, 159, 64, 1)'
+      //           ],
+      //           borderWidth: 1
+      //       }]
+      //   },
+      //   options: {
+      //       scales: {
+      //           y: {
+      //               beginAtZero: true
+      //           }
+      //       }
+      //   }
+      // });
+      //addData(myChart,arrLocalStorageKeys, arrLocalStorageValues);
+
+      myChart = new Chart("myChart", chartOptions);
+      myChart2 = new Chart("myChart2", chartOptions);
     }
     correctAnswers = 0;
     partida++;
@@ -203,13 +217,13 @@ function showQuestion(question) {
     if (answer.correct) {
       button.dataset.correct = true;
     }
-    button.addEventListener("click", ()=>{
+    button.addEventListener("click", () => {
       selectAnswer()
-      if(button.dataset.correct) {
+      if (button.dataset.correct) {
         correctAnswers++
       }
       correcta()
-    } );
+    });
     answerButtonsElement.appendChild(button);
   });
 }
@@ -224,13 +238,13 @@ function resetState() {
 function setNextQuestion() {
   resetState();
   showQuestion(questions[currentQuestionIndex]);
-  
+
 }
 
 function startGame() {
   startButton.classList.add("hide");
   textContainer.classList.add("hide");
-  
+
   textCorrect.classList.add("hide");
   textWrong.classList.add("hide");
   //ctx.classList.add("hide");
