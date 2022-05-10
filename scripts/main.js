@@ -7,6 +7,7 @@ const textCorrect = document.getElementById("text-correct");
 const textWrong = document.getElementById("text-wrong")
 const startButton = document.getElementById("start-btn");
 const ctx = document.getElementById('myChart').getContext('2d');
+//const laMierdaDeLaGráfica = getElementById('contenedor');
 const audio = new Audio('./stonecutters-song.mp3');
 let partida = 1;
 let questions = [];
@@ -31,6 +32,16 @@ function setStatusClass(element, correct) {
   }
 }
 
+
+function addData(chart, label, data) {
+  chart.data.labels.push(label);
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.push(data);
+  });
+  chart.update();
+}
+
+
 function correcta () {
   console.log(correctAnswers)
   if (questions.length > currentQuestionIndex + 1) {
@@ -42,6 +53,7 @@ function correcta () {
       textWrong.classList.remove("hide")
       startButton.innerText = "Vuelve a intentarlo";
       startButton.classList.remove("hide");
+      ctx.classList.remove("hide");
       localStorage.setItem(partida, correctAnswers);
       const arrLocalStorageKeys = Object.keys({ ...localStorage });
       const arrLocalStorageValues = Object.values({ ...localStorage });
@@ -80,12 +92,14 @@ function correcta () {
         }
       });
       myChart();
+      addData(myChart,arrLocalStorageKeys, arrLocalStorageValues);
     } else {
         audio.play();
         questionContainerElement.classList.add("hide")
         textCorrect.classList.remove("hide");
         startButton.innerText = "Vuelve a intentarlo";
         startButton.classList.remove("hide");
+        //ctx.classList.remove("hide");
         localStorage.setItem(partida, correctAnswers);
         const arrLocalStorageKeys = Object.keys({ ...localStorage });
         const arrLocalStorageValues = Object.values({ ...localStorage });
@@ -124,6 +138,7 @@ function correcta () {
           }
         });
         myChart();
+        addData(myChart,arrLocalStorageKeys, arrLocalStorageValues);
     }
     correctAnswers = 0;
     partida++;
@@ -177,8 +192,10 @@ function setNextQuestion() {
 function startGame() {
   startButton.classList.add("hide");
   textContainer.classList.add("hide");
+  
   textCorrect.classList.add("hide");
   textWrong.classList.add("hide");
+  //ctx.classList.add("hide");
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
   audio.pause();
