@@ -11,6 +11,7 @@ body{
 	flex-direction: column;
     justify-content: center;
     align-items: center;
+	flex-wrap: wrap;
 	font-family: 'Homer Simpson Revised','Dosis', sans-serif;
 }
 
@@ -27,12 +28,9 @@ body{
 	flex-direction: column;
     justify-content: center;
     align-items: center;
+	flex-wrap: wrap;
 	position: absolute;
 	background-color: #0000007e;
-}
-
-#question{
-	color: #E4A014;
 }
 
 #text-container{
@@ -68,6 +66,7 @@ a:hover {
 }
 
 #question{
+	color: #E4A014;
 	display: flex;
 	text-align: center;
 	font-size: 3rem;
@@ -81,6 +80,8 @@ a:hover {
 	justify-content: center;
 	align-items: center;
 	padding: 2rem;
+	gap: 1rem;
+	width: 75rem;
 }
 
 .correct {
@@ -165,8 +166,12 @@ a:hover {
 	top:1px;
 }
 
-/* #results-container{
-} */
+#results-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
 #text-correct{
 	display: flex;
@@ -189,7 +194,12 @@ a:hover {
 
 #img-wrong{
 	height: auto;
-	width: 10rem;
+	width: 25rem;
+}
+
+#myChart{
+height: 5rem;
+width: 5rem;
 }
 
 .hide {

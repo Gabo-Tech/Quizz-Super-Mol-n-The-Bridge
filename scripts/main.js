@@ -16,11 +16,9 @@ let currentQuestionIndex;
 
 const getApi = async () => {
   const response = await axios.get("../questions.json")
-  questions = response.data.results; 
-  console.log(questions)
+  questions = response.data.results;
 }
 getApi();
-
 
 function setStatusClass(element, correct) {
   if (correct) {
@@ -43,7 +41,6 @@ function addData(chart, label, data) {
 
 
 function correcta () {
-  console.log(correctAnswers)
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
@@ -166,9 +163,7 @@ function showQuestion(question) {
     button.addEventListener("click", ()=>{
       selectAnswer()
       if(button.dataset.correct) {
-        console.log(correctAnswers)
         correctAnswers++
-        console.log(correctAnswers)
       }
       correcta()
     } );
@@ -208,6 +203,27 @@ nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   setNextQuestion();
 });
+
+// GRÁFICA
+// const labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
+
+//   const data = {
+//     labels: labels,
+//     datasets: [{
+//       label: 'Mi primera gráfica',
+//       backgroundColor: 'rgb(255, 99, 132)',
+//       borderColor: 'rgb(255, 99, 132)',
+//       data: [0, 10, 5, 2, 20, 30, 45],
+//     }]
+//   };
+
+//   const config = {
+//     type: 'bar',
+//     data: data,
+//     options: {}
+//   };
+
+// const myChart = new Chart('myChart', config);
 
 // IMÁGENES RÁNDOM para cada pregunta
 // Dejo esto comentado hasta que vuelva a funcionar la página porque no sé dónde ponerlo
