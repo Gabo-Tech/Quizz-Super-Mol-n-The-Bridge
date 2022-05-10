@@ -1,3 +1,4 @@
+//Cogemos todos los elementos del DOM que necesitamos y creamos las constantes. 
 const textContainer = document.getElementById("text-container");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
@@ -9,7 +10,7 @@ const startButton = document.getElementById("start-btn");
 const audio = new Audio('./stonecutters-song.mp3');
 const ctx = document.getElementById('myChart');
 const ctx2 = document.getElementById('myChart2')
-
+//Creamos las variables necesarias para la lógica del Quiz
 let partida = 1;
 let questions = [];
 let correctAnswers = 0;
@@ -17,13 +18,13 @@ let currentQuestionIndex;
 let myChart;
 let myChart2;
 let chartOptions;
-
+//Conectamos con la API para coger las preguntas.
 const getApi = async () => {
   const response = await axios.get("../questions.json")
   questions = response.data.results;
 }
 getApi();
-
+//Función para determinar si las respuestas son correctas.
 function setStatusClass(element, correct) {
   if (correct) {
     element.classList.remove("myButton");
@@ -33,14 +34,14 @@ function setStatusClass(element, correct) {
     element.classList.add("wrong");
   }
 }
-
+//Función para añadir y actulizar la gráfica, la cual no funciona y no usamos en el código. 
 function addData(chart, label, data) {
   chart.data.labels.push(label);
   chart.data.datasets.forEach((dataset) => {
     dataset.data.push(data);
   });
 }
-
+//Función para mostrar la gráfica. 
 function showGraph(arrLocalStorageKeys, arrLocalStorageValues) {
   if (myChart || myChart2) {
     myChart.destroy()
@@ -92,7 +93,7 @@ function showGraph(arrLocalStorageKeys, arrLocalStorageValues) {
     }
   }
 }
-
+//Función para ostrar un final diferente según se acierten o no otdas las preguntas.
 function correcta() {
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
@@ -154,7 +155,7 @@ function correcta() {
     partida++;
   }
 }
-
+//Función para algo
 function selectAnswer() {
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
@@ -163,7 +164,7 @@ function selectAnswer() {
     nextButton.classList.remove("hide");
   }
 }
-
+//Fuciónpara mostrar las preguntas
 function showQuestion(question) {
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
@@ -185,19 +186,19 @@ function showQuestion(question) {
     answerButtonsElement.appendChild(button);
   });
 }
-
+//Función para resetear valores iniciales. 
 function resetState() {
   nextButton.classList.add("hide");
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
 }
-
+//Función para cambiar la pregunta mostrada
 function setNextQuestion() {
   resetState();
   showQuestion(questions[currentQuestionIndex]);
 }
-
+//Función para comenzar e juego
 function startGame() {
   startButton.classList.add("hide");
   textContainer.classList.add("hide");
@@ -209,7 +210,7 @@ function startGame() {
   audio.currentTime = 0;
   setNextQuestion();
 }
-
+//Event listener para llamar funciones al hcer click en los botones. 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
