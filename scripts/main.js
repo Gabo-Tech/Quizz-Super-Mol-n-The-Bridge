@@ -10,7 +10,8 @@ const startButton = document.getElementById("start-btn");
 const audio = new Audio('./stonecutters-song.mp3');
 const ctx = document.getElementById('myChart');
 const ctx2 = document.getElementById('myChart2')
-//Creamos las variables necesarias para la lógica del Quiz
+
+//Creamos las variables necesarias para la lógica del Quiz.
 let partida = 1;
 let questions = [];
 let correctAnswers = 0;
@@ -18,12 +19,14 @@ let currentQuestionIndex;
 let myChart;
 let myChart2;
 let chartOptions;
+
 //Conectamos con la API para coger las preguntas.
 const getApi = async () => {
   const response = await axios.get("../questions.json")
   questions = response.data.results;
 }
 getApi();
+
 //Función para determinar si las respuestas son correctas.
 function setStatusClass(element, correct) {
   if (correct) {
@@ -47,7 +50,6 @@ function showGraph(arrLocalStorageKeys, arrLocalStorageValues) {
     myChart.destroy()
     myChart2.destroy()
   }
-
   chartOptions = {
     type: 'bar',
     data: {
@@ -93,6 +95,7 @@ function showGraph(arrLocalStorageKeys, arrLocalStorageValues) {
     }
   }
 }
+
 //Función para ostrar un final diferente según se acierten o no otdas las preguntas.
 function correcta() {
   if (questions.length > currentQuestionIndex + 1) {
@@ -155,7 +158,8 @@ function correcta() {
     partida++;
   }
 }
-//Función para algo
+
+//Función para mostrar los botones.
 function selectAnswer() {
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
@@ -164,7 +168,8 @@ function selectAnswer() {
     nextButton.classList.remove("hide");
   }
 }
-//Fuciónpara mostrar las preguntas
+
+//Fuciónpara mostrar las preguntas.
 function showQuestion(question) {
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
@@ -186,6 +191,7 @@ function showQuestion(question) {
     answerButtonsElement.appendChild(button);
   });
 }
+
 //Función para resetear valores iniciales. 
 function resetState() {
   nextButton.classList.add("hide");
@@ -193,12 +199,14 @@ function resetState() {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
 }
-//Función para cambiar la pregunta mostrada
+
+//Función para cambiar la pregunta mostrada.
 function setNextQuestion() {
   resetState();
   showQuestion(questions[currentQuestionIndex]);
 }
-//Función para comenzar e juego
+
+//Función para comenzar el juego.
 function startGame() {
   startButton.classList.add("hide");
   textContainer.classList.add("hide");
@@ -210,6 +218,7 @@ function startGame() {
   audio.currentTime = 0;
   setNextQuestion();
 }
+
 //Event listener para llamar funciones al hcer click en los botones. 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {

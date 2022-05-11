@@ -1,4 +1,4 @@
-# <center>Los Canteros Quizz</center>
+# Los Canteros Quizz
 
 ## Índice
 
@@ -29,7 +29,7 @@ Para este proyecto hemos utilizado:
 
 ### Origen
 
-Este proyecto fue planteado como un ejercicio sobre la lectura de documentación, adquisición de nuevos conocimientos de forma autodidacta y manejo del local storage.
+Este proyecto responde al ejercicio presentado como Quiz donde practicamos implementación de APIs, SPA y gráficas, con la finalidad de profundizar en los conocimientos adquiridos hasta el momento.
 
 ### Objetivos
 
@@ -46,20 +46,19 @@ Este proyecto fue planteado como un ejercicio sobre la lectura de documentación
 
 ### Concepto e inspiración
 
-La temática principal de la página es una fusión de el concepto favorito de cada uno de los autores. En el caso de Rebeca son los Simpson y para Gabriel son las teorías conspiranoicas y asociaciones secretas, por tanto, si los Simson hacen Canteros, la única opción lógica era llamar a este proyecto "Los Canteros"
-A parte, hemos escogido el color verde ya que es el color que comparten los aguacates y muchas variedades de patos.
-También, en el formulario se puede observar como hemos acabado con la cuestión de género cambiando los viejos y aburridos "hombre" y "mujer" por los nuevos y mejorados "pato" y "aguacate".
+Este proyecto consiste en un test de preguntas sobre Los Simpsons para ingresar en la anigua y mística sociedad de Los Canteros.
 
 ## Retos presentados
 
 ### Graph.js
-Implementar una gráfica de Graph.js al final tuvimos que crear objectos a partir del localStorage para reordenarlo y crear dos arrays para pasarlas al código de graph.js. Ha sido un reto por que no funcionaba nada de como se explicaba en la documentación. 
+
+Para implementar una gráfica de Graph.js tuvimos que crear objectos a partir del localStorage para reordenarlo y crear dos arrays para pasarlas al código de graph.js. Ha sido un reto por queno funcionaba nada de como se explicaba en la documentación. 
 
 ## Agradecimientos
 
-Un agradecimiento especial a [Germán](https://github.com/Molerog) y [Sofía](https://github.com/vaneebg) y [Ivan](https://github.com/vaneebg) por el intercambio de ideas/conocimientos, si no fuese por ellos, el sistema de la gráfica aún estaría en pañales.
+Un agradecimiento especial a [Germán](https://github.com/GeerDev), [Sofía](https://github.com/SofiaPinilla) e [Ivan]() ya que, prácticamente, este proyecto ha sido realizado entre cinco en vez de por pareja.
 
 ## Autores
 
-### [Rebeca](https://github.com/RebecaASuesta) 
-### [Gabriel](https://github.com/gabriel19971029) 🥑
+### [Rebeca](https://github.com/RebecaASuesta) 👩‍💻
+### [Gabriel](https://github.com/gabriel19971029) 👨‍💻
