@@ -18,7 +18,7 @@
 
 ### Instalación y despliegue
 
-Para instalar esta pagina solo tienes que tener acceso a internet y ejecutar el comando en consola `git clone https://github.com/gabriel19971029/Quizz-Super-Mol-n-The-Bridge.git`, tambien se puede acceder a través de [este enlace](https://github.com/gabriel19971029/Quizz-Super-Mol-n-The-Bridge)
+Para instalar esta página solo tienes que tener acceso a internet y ejecutar el comando en consola `git clone https://github.com/gabriel19971029/Quizz-Super-Mol-n-The-Bridge.git`, también se puede acceder a través de [este enlace](https://github.com/gabriel19971029/Quizz-Super-Mol-n-The-Bridge)
 
 ### Tecnologías usadas
 
@@ -33,15 +33,15 @@ Este proyecto responde al ejercicio presentado como Quiz donde practicamos imple
 
 ### Objetivos
 
--[x]Manipulación dinámica del DOM
--[x]Crear una página SPA para las preguntas
--[x]Manejo de ES6
--[x]Asincronía. Usar API de preguntas https://opentdb.com/
--[x]APIs HTML5: Uso de Local storage (gráficas opcional)
--[x]Sin frameworks y librerías externas en la medida de lo posible. Salvo frameworks de CSS como Bootstrap
--[x]Gestión del proyecto desde el inicio en un único repositorio compartido (como colaboradores) en Github
--[x]Código limpio, buenas prácticas
--[x]Readme con explicación del proyecto
+[x] Manipulación dinámica del DOM
+[x] Crear una página SPA para las preguntas
+[x] Manejo de ES6
+[x] Asincronía. Usar API de preguntas https://opentdb.com/
+[x] APIs HTML5: Uso de Local storage (gráficas opcional)
+[x] Sin frameworks y librerías externas en la medida de lo posible. Salvo frameworks de CSS como Bootstrap
+[x] Gestión del proyecto desde el inicio en un único repositorio compartido (como colaboradores) en Github
+[x] Código limpio, buenas prácticas
+[x] Readme con explicación del proyecto
 
 
 ### Concepto e inspiración

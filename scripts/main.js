@@ -37,6 +37,7 @@ function setStatusClass(element, correct) {
     element.classList.add("wrong");
   }
 }
+
 //Función para añadir y actulizar la gráfica, la cual no funciona y no usamos en el código. 
 function addData(chart, label, data) {
   chart.data.labels.push(label);
@@ -44,6 +45,7 @@ function addData(chart, label, data) {
     dataset.data.push(data);
   });
 }
+
 //Función para mostrar la gráfica. 
 function showGraph(arrLocalStorageKeys, arrLocalStorageValues) {
   if (myChart || myChart2) {
