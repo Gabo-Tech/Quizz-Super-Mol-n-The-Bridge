@@ -33,15 +33,15 @@ Este proyecto responde al ejercicio presentado como Quiz donde practicamos imple
 
 ### Objetivos
 
-[x] Manipulación dinámica del DOM
-[x] Crear una página SPA para las preguntas
-[x] Manejo de ES6
-[x] Asincronía. Usar API de preguntas https://opentdb.com/
-[x] APIs HTML5: Uso de Local storage (gráficas opcional)
-[x] Sin frameworks y librerías externas en la medida de lo posible. Salvo frameworks de CSS como Bootstrap
-[x] Gestión del proyecto desde el inicio en un único repositorio compartido (como colaboradores) en Github
-[x] Código limpio, buenas prácticas
-[x] Readme con explicación del proyecto
+- [x] Manipulación dinámica del DOM
+- [x] Crear una página SPA para las preguntas
+- [x] Manejo de ES6
+- [x] Asincronía. Usar API de preguntas https://opentdb.com/
+- [x] APIs HTML5: Uso de Local storage (gráficas opcional)
+- [x] Sin frameworks y librerías externas en la medida de lo posible. Salvo frameworks de CSS como Bootstrap
+- [x] Gestión del proyecto desde el inicio en un único repositorio compartido (como colaboradores) en Github
+- [x] Código limpio, buenas prácticas
+- [x] Readme con explicación del proyecto
 
 
 ### Concepto e inspiración
